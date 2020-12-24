@@ -17,6 +17,11 @@ class QuestionInline(admin.TabularInline):
     extra = 1
 
 
+class SurveryInline(admin.StackedInline):
+    model = Survey
+    extra = 1
+
+
 class SurveyAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,
@@ -28,11 +33,13 @@ class SurveyAdmin(admin.ModelAdmin):
          ),
     ]
     inlines = [QuestionInline]
+    list_display = ('survey_title', 'start_date', 'finish_date')
 
 
 class QuestionAdmin(admin.ModelAdmin):
     fields = ['survey', 'question_text', 'question_type']
     inlines = [AnswerInline]
+    list_display = ('survey', 'question_text', 'question_type')
 
 
 class AnswerAdmin(admin.ModelAdmin):

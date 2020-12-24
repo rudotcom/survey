@@ -7,7 +7,7 @@ class Survey(models.Model):
                                     null=False,
                                     default=None,
                                     blank=False)
-    start_date = models.DateField('Дата старта', auto_now_add=True)
+    start_date = models.DateField('Дата начала', auto_now_add=True)
     finish_date = models.DateField('Дата окончания')
     description = models.TextField('Описание',
                                    null=True,
