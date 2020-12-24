@@ -49,20 +49,20 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('answer_text', models.CharField(default=None, max_length=255)),
-                ('answer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.Answer')),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.Question')),
-                ('survey', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.Survey')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.User')),
+                ('answer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.Answer')),
+                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.Question')),
+                ('survey', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.Survey')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.User')),
             ],
         ),
         migrations.AddField(
             model_name='question',
-            name='survey',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.Survey'),
+            name='survey_app',
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.Survey'),
         ),
         migrations.AddField(
             model_name='answer',
             name='question',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey_app.Question'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='survey.Question'),
         ),
     ]

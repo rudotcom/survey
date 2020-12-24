@@ -34,6 +34,8 @@ class SurveyAdmin(admin.ModelAdmin):
     ]
     inlines = [QuestionInline]
     list_display = ('survey_title', 'start_date', 'finish_date')
+    list_filter = ['start_date', 'finish_date']
+    search_fields = ['title']
 
 
 class QuestionAdmin(admin.ModelAdmin):
