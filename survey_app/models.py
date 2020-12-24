@@ -33,8 +33,8 @@ class Question(models.Model):
         (ANSWER_MANY, 'Ответ с множественным выбором'),
     ]
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
-    question_text = models.CharField(max_length=200)
-    question_type = models.CharField(max_length=2, choices=AnswerType, default=ANSWER_TEXT, )
+    question_text = models.CharField('Вопрос', max_length=200)
+    question_type = models.CharField('Тип ответа', max_length=2, choices=AnswerType, default=ANSWER_TEXT, )
 
     def __unicode__(self):
         return self.question_text

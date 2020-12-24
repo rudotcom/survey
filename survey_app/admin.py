@@ -18,7 +18,15 @@ class QuestionInline(admin.TabularInline):
 
 
 class SurveyAdmin(admin.ModelAdmin):
-    fields = ['survey_title', 'description', 'finish_date']
+    fieldsets = [
+        (None,
+         {'fields': ['survey_title']}
+         ),
+        ('Подробности',
+         {'fields': ['description', 'finish_date'],
+          'classes': ['collapse']}
+         ),
+    ]
     inlines = [QuestionInline]
 
 
@@ -28,12 +36,8 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ['AnswerText']
+    fields = ['AnswerText', 'AnswerText']
     inlines = [UserAnswerInline]
-
-
-class UserAnswerAdmin(admin.ModelAdmin):
-    fields = ['AnswerText']
 
 
 admin.site.register(Survey, SurveyAdmin)
